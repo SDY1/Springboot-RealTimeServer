@@ -17,8 +17,8 @@ public class NewsBatch {
 	private final NewsRepository newsRepository;
 	private final NaverCraw naverCraw;
 	
-//	@Scheduled(cron="0 0 1 * * ?")
-	@Scheduled(fixedDelay = 1000 * 60 * 5)
+	@Scheduled(cron="0 0 1 * * ?")
+//	@Scheduled(fixedDelay = 1000 * 60 * 5)
 	public void newsCrawAndSave() {
 		List<News>newsList = naverCraw.collect();
 		newsRepository.saveAll(newsList);
